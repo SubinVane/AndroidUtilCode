@@ -1,30 +1,32 @@
 package com.blankj.utilcode.util;
 
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 
-import static com.blankj.utilcode.util.TestUtils.FILE_SEP;
+import java.io.FileInputStream;
+
+import static com.blankj.utilcode.util.TestConfig.PATH_FILE;
+import static com.blankj.utilcode.util.TestConfig.PATH_TEMP;
 
 /**
  * <pre>
  *     author: Blankj
  *     blog  : http://blankj.com
  *     time  : 2017/05/24
- *     desc  :
+ *     desc  : test FileIOUtils
  * </pre>
  */
 public class FileIOUtilsTest {
 
-    String path  = TestUtils.TEST_PATH + FILE_SEP + "file" + FILE_SEP;
-    String path1 = TestUtils.TEST_PATH + FILE_SEP + "file1" + FILE_SEP;
-
     @Test
     public void writeFileFromIS() throws Exception {
-//        assertTrue(FileIOUtils.writeFileFromIS(path + "NEW.txt", new FileInputStream(path + "UTF8.txt"), false));
-//        assertTrue(FileIOUtils.writeFileFromIS(path + "NEW.txt", new FileInputStream(path + "UTF8.txt"), true));
+        Assert.assertTrue(FileIOUtils.writeFileFromIS(PATH_TEMP + "UTF8.txt", new FileInputStream(PATH_FILE + "UTF8.txt"), false));
+        Assert.assertTrue(FileIOUtils.writeFileFromIS(PATH_TEMP + "UTF8.txt", new FileInputStream(PATH_FILE + "UTF8.txt"), true));
     }
 
     @Test
-    public void writeFileFromBytes() throws Exception {
+    public void writeFileFromBytes() {
 //        String p = path + "test.txt";
 //        String p1 = path + "copy.zip";
 //        byte[] data = new byte[(1 << 20) * 100];
@@ -57,22 +59,22 @@ public class FileIOUtilsTest {
     }
 
     @Test
-    public void writeFileFromString() throws Exception {
+    public void writeFileFromString() {
 
     }
 
     @Test
-    public void readFile2List() throws Exception {
+    public void readFile2List() {
 
     }
 
     @Test
-    public void readFile2String() throws Exception {
+    public void readFile2String() {
 
     }
 
     @Test
-    public void readFile2Bytes() throws Exception {
+    public void readFile2Bytes() {
 //        String p = path + "test.app.zip";
 //        long st, end;
 //        st = System.currentTimeMillis();
@@ -87,6 +89,11 @@ public class FileIOUtilsTest {
 //        FileIOUtils.readFile2BytesByMap(p);
 //        end = System.currentTimeMillis();
 //        System.out.println(end - st);
+    }
+
+    @After
+    public void tearDown() {
+        FileUtils.deleteAllInDir(PATH_TEMP);
     }
 
 }

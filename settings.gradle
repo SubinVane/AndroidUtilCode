@@ -1,1 +1,4 @@
-include ':app', ':utilcode', ':subutil'
+include ':app',
+        ':buildSrc',
+        ':subutil',
+        ':utilcode'

@@ -11,26 +11,12 @@ import org.robolectric.annotation.Config;
  *     author: Blankj
  *     blog  : http://blankj.com
  *     time  : 2016/08/21
- *     desc  : 单元测试工具类
+ *     desc  : utils about test
  * </pre>
  */
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
 public class TestUtils {
-
-    static final String FILE_SEP = System.getProperty("file.separator");
-
-    static final String LINE_SEP = System.getProperty("line.separator");
-
-    static final String TEST_PATH;
-
-    static {
-        String projectPath = System.getProperty("user.dir");
-        if (!projectPath.contains("utilcode")) {
-            projectPath += FILE_SEP + "subutil";
-        }
-        TEST_PATH = projectPath + FILE_SEP + "src" + FILE_SEP + "test" + FILE_SEP + "res";
-    }
 
     public static void init() {
         Utils.init(RuntimeEnvironment.application);
@@ -38,6 +24,6 @@ public class TestUtils {
 
     @Test
     public void test() throws Exception {
-
+        System.out.println(-1 << 2);
     }
 }
