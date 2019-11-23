@@ -1,4 +1,1 @@
-include ':app',
-        ':buildSrc',
-        ':subutil',
-        ':utilcode'
+ConfigUtils.addBuildListener(gradle)
